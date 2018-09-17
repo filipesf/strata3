@@ -1,0 +1,17 @@
+/* ==========================================================================
+   UI PATTERNS
+   ========================================================================== */
+
+/// @group Patterns
+/// @require {function} rem
+/// @param $width [rem(1280)]
+/// @param $margin [true]
+/// @output Set `max-width` to the container
+@mixin wrapper($width: rem(1280), $margin: true) {
+  width: 100%;
+  max-width: $width;
+
+  @if $margin {
+    margin: 0 auto;
+  }
+}
