@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import NewsAPI from 'newsapi';
 import CardsList from './components/CardsList';
 import './assets/styles/main.scss';
 
@@ -9,24 +9,40 @@ class App extends Component {
     this.state = {
       data: {},
       articles: [],
+      query: ''
     };
 
-    this.apiUrl =
-      'https://newsapi.org/v2/everything?q=brazil&language=en&apiKey=3f21c88dbb144b2d92a6065158741d10';
+    this.newsapi = new NewsAPI('3f21c88dbb144b2d92a6065158741d10');
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillMount() {
-    axios.get(this.apiUrl).then(res => {
-      this.setState({
-        data: res.data,
-        articles: res.data.articles
-      });
-      console.log(this.state.data);
-    });
+  handleChange(event) {
+    this.setState({ query: event.target.value });
+
+    setTimeout(() => {
+      this.newsapi.v2
+        .everything({
+          q: this.state.query,
+          sortBy: 'relevancy',
+          language: 'en',
+          pageSize: 9
+        })
+        .then(response => {
+          this.setState({
+            data: response,
+            articles: response.articles
+          });
+        });
+    }, 500);
   }
 
   render() {
-    return <CardsList data={this.state.articles} />;
+    return (
+      <div>
+        <input type="text" onChange={this.handleChange} />
+        <CardsList data={this.state.articles} />
+      </div>
+    );
   }
 }
 
