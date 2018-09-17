@@ -6,7 +6,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: {},
+      articles: [],
     };
 
     this.apiUrl =
@@ -15,7 +16,10 @@ class App extends Component {
 
   componentWillMount() {
     axios.get(this.apiUrl).then(res => {
-      this.setState({ data: res.data.articles });
+      this.setState({
+        data: res.data,
+        articles: res.data.articles
+      });
       console.log(this.state.data);
     });
   }
