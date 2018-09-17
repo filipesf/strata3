@@ -3,52 +3,61 @@
    ========================================================================== */
 
 .c-card {
-  @include rectangle(100%, rem(350));
-  @include transition(default);
   @include animation(intro);
   @include elevation(3);
-  position: relative;
+  @include gradient-mask(black, 1);
+  @include transition(default);
   display: block;
+  padding: size(22) size(3) size(3);
   text-decoration: none;
-  color: color(gray, 900);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &, &:after {
+    border-radius: rem(4);
+  }
 
   @include on-event {
-    @include elevation(1);
+    @include elevation(4);
+
+    .c-card__content {
+      transform: translateY(rem(-4));
+    }
   }
 }
 
 
 
-.c-card__image {
-  padding-bottom: rem(180);
-  margin-bottom: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
-
 .c-card__tag {
-  @include floatbox(card, 0, darken(#6741d9, 20%));
-  @include type-scale(-3);
+  @include type-scale(-2);
+  @include elevation(2);
   position: absolute;
-  left: size(-1);
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
+  transform: translate(size(3), -50%);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: size(1/2) size(1);
   line-height: 1;
-  background-color: #6741d9;
+  border-radius: rem(2);
+  background-color: black;
   color: white;
 }
 
 
 
 .c-card__content {
-  padding: size(2);
-  background-color: white;
+  @include transition(default);
+}
+
+
+
+.c-card__title,
+.c-card__description {
+  color: white;
+  text-shadow: 0 0 rem(2) rgba(black, .9)
 }
 
 
@@ -62,10 +71,8 @@
 
 
 .c-card__description {
-  @include text-wrap(4);
-  @include gradient-mask(white, .8);
   @include type-scale(-1, 0);
+  @include text-wrap(3);
   margin: 0;
   font-weight: 400;
-  color: color(gray, 700);
 }
