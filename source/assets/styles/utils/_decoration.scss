@@ -41,20 +41,21 @@ $elevations: (
 /// @require {function} rem
 /// @type map
 $shadows: (
-  flat: 0 rem(12) 0 rem(-6) color(gray, 300)
+  flat: 0 rem(12) 0 rem(-6),
+  card: 0 rem(3) 0 rem(-1),
 );
 
 /// @group Decoration
 /// @param {string} $type
-@mixin shadow($type) {
-  box-shadow: map-get($shadows, $type);
+@mixin shadow($type, $color: false) {
+  box-shadow: map-get($shadows, $type) $color;
 }
 
 /// @group Decoration
 /// @require {mixin} shadow
-@mixin floatbox {
-  @include shadow(flat);
-  border: rem(3) solid color(gray, 300);
+@mixin floatbox($shadow: flat, $widht: rem(3), $color: color(gray, 300)) {
+  @include shadow($shadow, $color);
+  border: $widht solid $color;
 }
 
 /// @group Decoration

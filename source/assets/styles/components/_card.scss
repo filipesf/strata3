@@ -1,0 +1,71 @@
+/* ==========================================================================
+   CARD
+   ========================================================================== */
+
+.c-card {
+  @include rectangle(100%, rem(350));
+  @include transition(default);
+  @include animation(intro);
+  @include elevation(3);
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: color(gray, 900);
+
+  @include on-event {
+    @include elevation(1);
+  }
+}
+
+
+
+.c-card__image {
+  padding-bottom: rem(180);
+  margin-bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.c-card__tag {
+  @include floatbox(card, 0, darken(#6741d9, 20%));
+  @include type-scale(-3);
+  position: absolute;
+  left: size(-1);
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: size(1/2) size(1);
+  line-height: 1;
+  background-color: #6741d9;
+  color: white;
+}
+
+
+
+.c-card__content {
+  padding: size(2);
+  background-color: white;
+}
+
+
+
+.c-card__title {
+  @include type-scale(1);
+  @include text-wrap(2);
+  margin-bottom: size(1);
+}
+
+
+
+.c-card__description {
+  @include text-wrap(4);
+  @include gradient-mask(white, .8);
+  @include type-scale(-1, 0);
+  margin: 0;
+  font-weight: 400;
+  color: color(gray, 700);
+}
