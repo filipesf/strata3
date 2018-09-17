@@ -1,5 +1,6 @@
 {
   "name": "strata3",
+  "homepage": "https://strata3.filipesf.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
