@@ -3,7 +3,6 @@
    ========================================================================== */
 
 .c-card {
-  @include animation(intro);
   @include elevation(3);
   @include gradient-mask(black, 1);
   @include transition(default);
@@ -23,6 +22,12 @@
 
     .c-card__content {
       transform: translateY(rem(-4));
+    }
+  }
+
+  @for $i from 1 through 9 {
+    &:nth-of-type(#{$i}) {
+      @include animation(intro, $i);
     }
   }
 }
