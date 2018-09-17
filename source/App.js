@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import CardsList from './components/CardsList';
 import './assets/styles/main.scss';
 
 class App extends Component {
@@ -25,9 +26,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div />
-    );
+    return <CardsList data={this.state.articles} />;
   }
 }
 

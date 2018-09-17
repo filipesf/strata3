@@ -1,0 +1,17 @@
+/* ==========================================================================
+   CARDS LIST
+   ========================================================================== */
+
+.l-cards-list {
+  @include wrapper;
+  display: grid;
+  grid-gap: size(6);
+  grid-template-columns: repeat(auto-fit, 1fr);
+  justify-content: center;
+  padding: size(6) size(3);
+
+  @include media-query(medium) {
+    grid-template-columns: repeat(auto-fit, rem(300));
+    padding: size(6) 0;
+  }
+}
