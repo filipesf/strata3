@@ -3,10 +3,12 @@
    ========================================================================== */
 
 .c-search {
+  display: grid;
+  grid-gap: size(8);
   padding: size(6) size(3);
 
   @include media-query(medium) {
-    padding: size(6);
+    padding: size(8);
   }
 }
 
@@ -19,7 +21,6 @@
   @include type-scale(2, 0);
   display: block;
   padding: size(1);
-  margin-top: size(6);
   border-radius: rem(8);
   text-align: center;
   color: color(gray, 700);
