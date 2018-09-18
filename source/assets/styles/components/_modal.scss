@@ -1,0 +1,125 @@
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+
+.c-modal {
+  @include transition(modal);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(black, .9);
+  z-index: 99999999;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+
+  &.is-visible {
+    @include transition(modal);
+    visibility: visible;
+    opacity: 1;
+
+    .c-modal__container {
+      @include animation(modal, 2);
+    }
+  }
+}
+
+
+
+.c-modal__container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - #{size(6)});
+  max-width: rem(480);
+  height: auto;
+  border-radius: rem(4);
+  transform: translate(-50%, -50%);
+  background-color: white;
+  opacity: 0;
+}
+
+
+
+.c-modal__image {
+  @include gradient-mask(black, 1);
+  padding-bottom: 56.25%;
+  width: 100%;
+  margin: 0;
+  border-top-left-radius: rem(4);
+  border-top-right-radius: rem(4);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.c-modal__content {
+  display: grid;
+  grid-gap: size(1);
+  padding: size(3);
+}
+
+
+
+.c-modal__title {
+  @include type-scale(1);
+  margin: 0;
+}
+
+
+
+.c-modal__description {
+  @include type-scale(-1);
+  @include text-wrap(3);
+  max-height: rem(68);
+  margin: 0;
+}
+
+
+
+.c-modal__back {
+  @include type-scale(-1);
+  position: absolute;
+  top: size(-4);
+  color: white;
+  text-shadow: 0 0 rem(2) rgba(black, .9);
+  cursor: pointer;
+
+  @include on-event {
+    text-decoration: underline;
+  }
+}
+
+
+
+.c-modal__link {
+  @include type-scale(-1);
+  display: inline-block;
+  margin-top: size(1);
+  border-radius: rem(2);
+  color: black;
+}
+
+
+
+.c-modal__details {
+  @include type-scale(-1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: size(2) size(3);
+  margin: 0;
+  text-shadow: 0 0 rem(2) rgba(black, .9);
+  list-style: none;
+  color: white;
+}
+
+
+
+.c-modal__date {
+  font-weight: 700;
+}

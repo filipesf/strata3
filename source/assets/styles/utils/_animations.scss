@@ -16,6 +16,19 @@
 }
 
 /// @group Animations
+@keyframes modal {
+  from {
+    margin-top: size(6);
+    opacity: 0;
+  }
+
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+/// @group Animations
 /// @type map
 $animations: (
   intro: (
@@ -25,10 +38,11 @@ $animations: (
     animation-fill-mode: forwards,
   ),
 
-  scroll: (
-    animation-name: updown,
-    animation-duration: 2s,
-    animation-iteration-count: infinite,
+  modal: (
+    opacity: 0,
+    animation-name: modal,
+    animation-duration: 1s,
+    animation-fill-mode: forwards,
   ),
 );
 

@@ -6,6 +6,7 @@
 /// @type map
 $transitions: (
   default: all 200ms ease,
+  modal: all 500ms ease,
   lazy: opacity 2s cubic-bezier(0.22, 0.61, 0.36, 1),
 );
 
