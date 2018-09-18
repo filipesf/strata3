@@ -8,6 +8,7 @@
   @include transition(default);
   display: block;
   padding: size(22) size(3) size(3);
+  min-height: rem(315);
   text-decoration: none;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,6 +20,7 @@
 
   @include on-event {
     @include elevation(4);
+    cursor: pointer;
 
     .c-card__content {
       transform: translateY(rem(-4));
