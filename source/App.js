@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { debounce } from 'lodash';
 import NewsAPI from 'newsapi';
 import Search from './components/Search';
 import CardsList from './components/CardsList';
@@ -17,30 +18,27 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ query: event.target.value });
-
-    setTimeout(() => {
-      this.newsapi.v2
-        .everything({
-          q: this.state.query,
-          sortBy: 'relevancy',
-          language: 'en',
-          pageSize: 9
-        })
-        .then(response => {
-          this.setState({
-            data: response,
-            articles: response.articles
-          });
+  handleChange = debounce(text => {
+    this.setState({ query: text });
+    this.newsapi.v2
+      .everything({
+        q: this.state.query,
+        sortBy: 'relevancy',
+        language: 'en',
+        pageSize: 9
+      })
+      .then(response => {
+        this.setState({
+          data: response,
+          articles: response.articles
         });
-    }, 500);
-  }
+      });
+  }, 800);
 
   render() {
     return (
       <div>
-        <Search onChange={this.handleChange} />
+        <Search onChange={e => this.handleChange(e.target.value)} />
         <CardsList data={this.state.articles} />
       </div>
     );
