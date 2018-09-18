@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewsAPI from 'newsapi';
+import Search from './components/Search';
 import CardsList from './components/CardsList';
 import './assets/styles/main.scss';
 
@@ -39,7 +40,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <input type="text" onChange={this.handleChange} />
+        <Search onChange={this.handleChange} />
         <CardsList data={this.state.articles} />
       </div>
     );

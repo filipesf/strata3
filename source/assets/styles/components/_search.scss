@@ -1,0 +1,39 @@
+/* ==========================================================================
+   SEARCH
+   ========================================================================== */
+
+.c-search {
+  padding: size(6) size(3);
+
+  @include media-query(medium) {
+    padding: size(6);
+  }
+}
+
+
+
+.c-search__input {
+  @include floatbox;
+  @include transition(default);
+  @include wrapper(rem(1024));
+  @include type-scale(2, 0);
+  display: block;
+  padding: size(1);
+  border-radius: rem(8);
+  text-align: center;
+  color: color(gray, 700);
+  -webkit-appearance: none;
+  appearance: none;
+
+  @include on-event {
+    @include floatbox(flat, rem(3), color(gray, 400));
+  }
+
+  @include placeholder {
+    opacity: .5
+  }
+
+  @include media-query(medium) {
+    @include type-scale(6);
+  }
+}
