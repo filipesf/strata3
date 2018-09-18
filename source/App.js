@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div>
         <Search onChange={e => this.handleChange(e.target.value)} />
-        <CardsList data={this.state.articles} />
+        {this.state.articles.length > 3 && <CardsList data={this.state.articles} />}
       </div>
     );
   }
