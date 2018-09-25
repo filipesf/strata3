@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Modal from './Modal';
 
 class Card extends Component {
@@ -19,7 +19,7 @@ class Card extends Component {
     const c = this.props.content;
 
     return (
-      <div>
+      <Fragment>
         <Modal
           isVisible={this.state.showModal}
           handleClose={this.handleModal}
@@ -37,7 +37,7 @@ class Card extends Component {
             <p className="c-card__description">{c.description}</p>
           </article>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
