@@ -37,7 +37,6 @@ const Modal = props => {
             href={c.url}
             title={c.title}
             rel="noopener"
-            target="_blank"
             onClick={props.handleClose}>
             Read the full article →
           </a>
