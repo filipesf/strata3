@@ -10,7 +10,7 @@ const Search = props => {
       <input
         className="c-search__input"
         onChange={props.onChange}
-        placeholder="What are you looking for? 😏"
+        placeholder="Search for the latest news on the web 🤓"
         type="text"
       />
     </section>
